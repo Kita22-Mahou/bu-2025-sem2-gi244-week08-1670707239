@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.02899
       objectReference: {fileID: 0}
+    - target: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4356800953600124292, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
       propertyPath: m_Name
       value: FX_DirtSplatter
@@ -416,6 +420,11 @@ PrefabInstance:
 --- !u!4 &559113528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1419152992, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
+  m_PrefabInstance: {fileID: 559113527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &596933645 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
   m_PrefabInstance: {fileID: 559113527}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &835818919
@@ -799,6 +808,9 @@ MonoBehaviour:
   jumpForce: 10
   gravityMultiplier: 2
   gameOver: 0
+  animator: {fileID: 1667492346595872702}
+  fixDirt: {fileID: 596933645}
+  FxExplosionPrefab: {fileID: 2630815748524575241, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
 --- !u!65 &1667492346595872700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -847,6 +859,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!95 &1667492346595872702 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5316224943294531085, guid: f2132836654cce146ae0fd83d2dc2a2d, type: 3}
+  m_PrefabInstance: {fileID: 1653295083643701775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

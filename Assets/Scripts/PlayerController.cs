@@ -10,6 +10,14 @@ public class PlayerController : MonoBehaviour
     private InputAction jumpAction;
     // 5.8 add audio source variable to play crash sound
     private AudioSource audioSource;
+    public AudioClip audioCash;
+    public AudioClip audioJump;
+      
+    public Animator animator;
+
+    public ParticleSystem fixDirt;
+
+    public GameObject FxExplosionPrefab;
 
     private bool isOnGround = true;
 
@@ -30,6 +38,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Physics.gravity *= gravityMultiplier;
+        animator.SetFloat("Speed_f", 1.0f);
     }
 
     // Update is called once per frame
@@ -44,6 +53,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             isOnGround = false;
+            animator.SetTrigger("Jump_trig");
+            audioSource.PlayOneShot(au);
+            fixDirt.Stop();
         }
     }
 
@@ -52,11 +64,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            fixDirt.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game Over!");
             gameOver = true;
+            animator.SetBool("Death_b",true);
+            animator.SetInteger("DeathType_int", 1);
+            audioSource.PlayOneShot(audioCash);
+            fixDirt.Stop();
+            Instantiate(FxExplosionPrefab, transform.position, Quaternion.identity);
+            
         }
     }
 }
