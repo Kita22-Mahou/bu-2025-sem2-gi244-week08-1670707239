@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             isOnGround = false;
             animator.SetTrigger("Jump_trig");
-            audioSource.PlayOneShot(au);
+            audioSource.PlayOneShot(audioJump);
             fixDirt.Stop();
         }
     }
